@@ -1,3 +1,5 @@
 </body>
-<script src="scripts/openMenu.js"></script>
+
+<script src=<?php echo router\web("scripts/","openMenu.js") ?> ></script>
+
 </html>

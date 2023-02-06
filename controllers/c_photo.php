@@ -8,6 +8,7 @@ function afficher($id=null) {
     if($id==null) {
         view("lesPhotos", [
             "titre"=>"Photos",
+            "albums"=>\models\album\get(),
             "photos"=>\models\photo\get()
         ]);
     } else {
