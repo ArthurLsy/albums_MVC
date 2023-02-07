@@ -30,7 +30,8 @@ html {
 
 #menu {
     position: absolute;
-    margin: 50px 0 0 50px;
+    margin: 20px 0 0 20px;
+    z-index: 1000;
 }
 
 .showMenu {
@@ -47,28 +48,21 @@ html {
     margin: 10px 0;
 }
 
-
-
 #bloc_image {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+}
+
+.div_pics {
+    margin: auto;
 }
 
 .pics {
-    margin-top: 50px;
     max-width: 300px;
     height: 300px;
-    border-radius: 15px;
-}
-
-.unePics {
     object-fit: cover;
-    width: 800px;
-    height: 800px;
-    border-radius: 15px;
 }
 
 .pop {
@@ -85,4 +79,49 @@ html {
     100% {
         transform: scale(1);
     }
+}
+
+#bloc_edit {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 auto;
+}
+
+#bloc_edit_btn {
+    display: flex;
+    flex-direction: row;
+}
+
+#bloc_btn_edit {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto auto;
+}
+
+.btn_edit{
+    margin: 10px;
+}
+
+#bloc_change_album {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#bloc_selection {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#bloc_validation {
+    width: 50%;
+}
+
+#btn_validation {
+    width: 50%;
+    margin: 25%;
 }
