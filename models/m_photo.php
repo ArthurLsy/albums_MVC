@@ -11,4 +11,15 @@
     function del($id) {
         \database\del("photos",$id);
     }
+
+    function last() {
+        return \database\select("SELECT idPh FROM photos ORDER BY idPh DESC LIMIT 1 ;",0);
+    }
+
+    function set($nomPhoto,$tbAlbum) {
+        \database\set("photos", ["nomPh"=>$nomPhoto]);
+        foreach ($tbAlbum as $assoc){
+            \database\set("comporter", ["idPh"=>last(), "idAlb"=>$assoc]);
+        }
+    }
 ?>

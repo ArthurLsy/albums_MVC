@@ -105,7 +105,7 @@ html {
 }
 
 #bloc_change_album {
-    display: flex;
+    margin-top: 10%;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -124,4 +124,19 @@ html {
 #btn_validation {
     width: 50%;
     margin: 25%;
+}
+
+.show_change_album {
+    display: flex;
+}
+
+.hide_change_album {
+    display: none;
+}
+
+#bloc_ajout {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 auto;
 }

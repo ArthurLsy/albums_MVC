@@ -13,4 +13,5 @@
         echo '<a class="btn btn-primary pop" href="'.router\url("album", "afficher", [$album['idAlb']]).'">'.$album['nomAlb'].'</a>';
     }
     ?>
+    <a class="btn btn-info pop" href="<?php echo router\url("photo", "ajouter", [$current_album]) ?>">Ajouter une photo</a>
 </div>

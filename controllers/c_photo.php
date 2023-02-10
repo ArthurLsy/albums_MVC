@@ -1,5 +1,7 @@
 <?php namespace ctrl\photo;
 
+use function models\photo\set;
+
 function index() {
     return "afficher";
 }
@@ -22,11 +24,23 @@ function afficher($id=null) {
 
 function editer($idPh,$idAlb) {
     view("edit", [
-        "titre"=>"Supprimer une photo",
+        "titre"=>"Editer une photo",
         "current_album"=>$idAlb,
         "albums"=>\models\album\get(),
         "photo"=>\models\photo\get($idPh)
     ]);
+}
+
+function ajouter($idAlb) {
+    view("ajouterPhoto", [
+        "titre"=>"Ajouter une photo",
+        "current_album"=>$idAlb,
+        "albums"=>\models\album\get()
+    ]);
+}
+
+function ajouterPhoto() {
+    \models\photo\set($_POST['nomPhoto'],$_POST["scales"]);
 }
 
 function supprimer($idPh, $idAlb) {
