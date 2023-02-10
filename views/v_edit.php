@@ -13,12 +13,13 @@ include("inc/header.php");
         </div>
         <div id="bloc_change_album" class="hide_change_album">
             <div id="bloc_selection">
+                <form name="editPhoto" action="<?= \router\url("photo","modifierAlbum",[$photo['idPh']]) ?>" method="post">
                 <?php
                 foreach ($albums as $album) {
                     ?>
                     <div class="input-group">
                         <div class="input-group-text">
-                        <input type="checkbox" id="scales_<?php echo $album['idAlb'] ?>" name="scales" class="form-check-input mt-0">
+                        <input type="checkbox" id="scales_<?php echo $album['idAlb'] ?>" name="scales[]" class="form-check-input mt-0">
                         </div>
                         <label class="form-control" for="scales_<?php echo $album['idAlb'] ?>"><?php echo $album['nomAlb'] ?></label>
                     </div>
@@ -27,11 +28,14 @@ include("inc/header.php");
                 ?>
             </div>
             <div id="bloc_validation">
-                <a href="" id="btn_validation" class="btn btn-success">Valider</a>
+                <input type="submit" href="" id="btn_validation" class="btn btn-success" value="Valider">
             </div>
+            </form>
         </div>
     </div>
 <?php
 
 include("inc/footer.php");
 ?>
+
+

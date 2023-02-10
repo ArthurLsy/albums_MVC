@@ -31,6 +31,10 @@ function editer($idPh,$idAlb) {
     ]);
 }
 
+function modifierAlbum($idPh) {
+    \models\photo\modifer($idPh, $_POST["scales"]);
+}
+
 function ajouter($idAlb) {
     view("ajouterPhoto", [
         "titre"=>"Ajouter une photo",
@@ -47,7 +51,5 @@ function supprimer($idPh, $idAlb) {
     \models\photo\del($idPh);
     redirect("album","afficher",[$idAlb]);
 }
-
-
 
 ?>
