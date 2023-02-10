@@ -53,7 +53,9 @@ function get($table, $id=0){
 		return select($sql);
 	}
 	else {
+
 		$sql="SELECT * FROM ".$table." WHERE ".getPKName($table)."=".$id;
+
 		return select($sql, 1);
 	}
 }

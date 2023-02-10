@@ -12,10 +12,6 @@
         \database\del("photos",$id);
     }
 
-    function delComporter($idPh) {
-        \database\query("DELETE FROM comporter WHERE idPh = '.$idPh.';");
-    }
-
     function last() {
         return \database\select("SELECT idPh FROM photos ORDER BY idPh DESC LIMIT 1 ;",0);
     }
@@ -41,7 +37,7 @@
     }
 
     function modifer($idPh,$tbAlbum) {
-        delComporter($idPh);
+        \database\del("comporter",["idPh"=>$idPh]);
         foreach ($tbAlbum as $assoc){
             ajoutPhotoAlbum($idPh,$assoc);
         }

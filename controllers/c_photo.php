@@ -33,6 +33,7 @@ function editer($idPh,$idAlb) {
 
 function modifierAlbum($idPh) {
     \models\photo\modifer($idPh, $_POST["scales"]);
+    redirect("album","afficher",$_SESSION["current_album"]);
 }
 
 function ajouter($idAlb) {
@@ -45,6 +46,7 @@ function ajouter($idAlb) {
 
 function ajouterPhoto() {
     \models\photo\set($_POST['nomPhoto'],$_POST["scales"]);
+    redirect("album","afficher",$_SESSION["current_album"]);
 }
 
 function supprimer($idPh, $idAlb) {

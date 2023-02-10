@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include_once("libraries/utility.php");
 utility\includeAll("libraries/");
 utility\includeAll("models/");

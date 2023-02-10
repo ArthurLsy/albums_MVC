@@ -5,9 +5,8 @@ function index() {
 }
 
 function afficher($id=null){
-    if ($id==null) {
-        $id = \models\album\random();
-    }
+    $id = $id ?? \models\album\random();
+    $_SESSION['current_album'] = ["idAlb"=>$id, "nomAlb"=> \database\select("SELECT idAlb FROM albums WHERE idAlb=.$id",0)];
     view("lesPhotos", [
         "titre"=>"Album",
         "current_album"=>$id,
