@@ -6,9 +6,9 @@ include("inc/header.php");
 
 <div id="bloc_ajout">
     <div id="bloc_form_add">
-        <form name="ajoutPhoto" action="<?= \router\url("photo","ajouterPhoto") ?>" method="post">
+        <form name="ajoutPhoto" action="<?= \router\url("photo","ajouterPhoto") ?>" method="post" enctype="multipart/form-data">
             <div id="nom_ajout">
-                <input type="text" name="nomPhoto" id="addname" type="text" class="form-control" placeholder="Nom de la photo" aria-label="Username" aria-describedby="basic-addon1" required>
+                <input type="file" name="nomPhoto" id="addname" class="form-control" required>
             </div>
     </div>
     <div id="bloc_change_album" class="show_change_album">
@@ -18,7 +18,7 @@ include("inc/header.php");
                 ?>
                 <div class="input-group">
                     <div class="input-group-text">
-                        <input value="<?= $album['idAlb'] ?>" type="checkbox" id="scales_<?php echo $album['idAlb'] ?>" name="scales[]" class="form-check-input mt-0" <?= $current_album == $album['idAlb'] ? "checked" : "" ?>>
+                        <input value="<?= $album['idAlb'] ?>" type="checkbox" id="scales_<?php echo $album['idAlb'] ?>" name="scales[]" class="form-check-input mt-0" <?= $current_album['idAlb'] == $album['idAlb'] ? "checked" : "" ?>>
                     </div>
                     <label class="form-control" for="scales_<?php echo $album['idAlb'] ?>"><?php echo $album['nomAlb'] ?></label>
                 </div>

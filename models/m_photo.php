@@ -12,10 +12,6 @@
         \database\del("photos",$id);
     }
 
-    function last() {
-        return \database\select("SELECT idPh FROM photos ORDER BY idPh DESC LIMIT 1 ;",0);
-    }
-
     function idPhoto($nomPh) {
         return \database\select("SELECT idPh FROM photos WHERE nomPh = '".$nomPh."';",0);
     }
@@ -28,9 +24,12 @@
         \database\set("comporter", ["idPh"=>$idPh, "idAlb"=>$idAlb]);
     }
 
-    function set($nomPhoto,$tbAlbum) {
-        \database\set("photos", ["nomPh"=>$nomPhoto]);
-        $idPh = last();
+    function set($tbAlbum) {
+        $tmpName = $_FILES['nomPhoto']['tmp_name'];
+        $idPh = \database\set("photos", ["nomPh"=>"ph_temp"]);
+        $name = "ph_".$idPh.".jpg";
+        \database\set("photos", ["nomPh"=>$name], $idPh);
+        move_uploaded_file($tmpName, \router\root().'public/pics/'.$name);
         foreach ($tbAlbum as $assoc){
             ajoutPhotoAlbum($idPh,$assoc);
         }

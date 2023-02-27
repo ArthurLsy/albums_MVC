@@ -9,7 +9,7 @@ function afficher($id=null){
     $_SESSION['current_album'] = ["idAlb"=>$id, "nomAlb"=> \database\select("SELECT idAlb FROM albums WHERE idAlb=.$id",0)];
     view("lesPhotos", [
         "titre"=>"Album",
-        "current_album"=>$id,
+        "current_album"=>$_SESSION['current_album'],
         "photos"=>\models\photo\getByAlbum($id),
         "albums"=>\models\album\get()
 

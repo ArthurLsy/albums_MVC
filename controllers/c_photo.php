@@ -10,12 +10,14 @@ function afficher($id=null) {
     if($id==null) {
         view("lesPhotos", [
             "titre"=>"Photos",
+            "current_album"=>$_SESSION['current_album'],
             "albums"=>\models\album\get(),
             "photos"=>\models\photo\get()
         ]);
     } else {
         view("unePhoto", [
             "titre"=>"Une photo",
+            "current_album"=>$_SESSION['current_album'],
             "albums"=>\models\album\get(),
             "photo"=>\models\photo\get($id)
         ]);
@@ -25,7 +27,7 @@ function afficher($id=null) {
 function editer($idPh,$idAlb) {
     view("edit", [
         "titre"=>"Editer une photo",
-        "current_album"=>$idAlb,
+        "current_album"=>$_SESSION['current_album'],
         "albums"=>\models\album\get(),
         "photo"=>\models\photo\get($idPh)
     ]);
@@ -39,14 +41,16 @@ function modifierAlbum($idPh) {
 function ajouter($idAlb) {
     view("ajouterPhoto", [
         "titre"=>"Ajouter une photo",
-        "current_album"=>$idAlb,
+        "current_album"=>$_SESSION['current_album'],
         "albums"=>\models\album\get()
     ]);
 }
 
 function ajouterPhoto() {
-    \models\photo\set($_POST['nomPhoto'],$_POST["scales"]);
-    redirect("album","afficher",$_SESSION["current_album"]);
+    if(isset($_FILES['nomPhoto'])) {
+        \models\photo\set($_POST["scales"]);
+        redirect("album", "afficher", [$_SESSION['current_album']["idAlb"]]);
+    }
 }
 
 function supprimer($idPh, $idAlb) {
