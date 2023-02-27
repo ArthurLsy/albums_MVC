@@ -42,4 +42,11 @@
         }
     }
 
+    function photoCouverture($idAlb) {
+        return \database\select(
+            'SELECT idPh
+            FROM comporter
+            WHERE idAlb = '.$idAlb.';');
+    }
+
 ?>

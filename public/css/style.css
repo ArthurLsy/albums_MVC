@@ -140,3 +140,14 @@ html {
     width: 40%;
     margin: 0 auto;
 }
+
+#bloc_admin_album {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#bloc_admin {
+    width: 50%;
+    margin: 0 auto;
+}
