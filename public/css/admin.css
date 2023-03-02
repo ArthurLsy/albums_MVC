@@ -1,0 +1,43 @@
+#bloc_admin_album {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#bloc_admin {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#bloc_album_modif {
+    text-align: center;
+}
+
+#btn_ajout_alb {
+    width: 20%;
+    margin: 80px 40% 40px 40%;
+}
+
+#bloc_ajout_alb {
+    margin: 0 35% 0 35%;
+}
+
+#bloc_ajout_alb form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.show_add_album {
+    display: flex;
+}
+
+.hide_add_album {
+    display: none;
+}
+
+#bloc_admin_album {
+    display: flex;
+    flex-wrap: wrap;
+}
+

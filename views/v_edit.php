@@ -50,6 +50,9 @@ include("inc/header.php");
             </form>
         </div>
     </div>
+
+    <script src=<?php echo router\web("scripts/","openChangeAlbum.js") ?> ></script>
+
 <?php
 
 include("inc/footer.php");

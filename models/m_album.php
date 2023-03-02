@@ -9,6 +9,13 @@
         return \database\random("albums");
     }
 
+    function del($id) {
+        \database\del("albums",$id);
+    }
+
+    function set($nom) {
+        \database\set("albums",["nomAlb"=>$nom]);
+    }
 ?>
 
 
