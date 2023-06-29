@@ -15,5 +15,6 @@
     ?>
     <a class="btn btn-primary pop" href="<?php echo router\url("photo", "afficher") ?>">Toutes les photos</a>
     <a class="btn btn-info pop" href="<?php echo router\url("photo", "ajouter", [$current_album['idAlb']]) ?>">Ajouter une photo</a>
+    <a class="btn btn-danger pop" href="<?php echo router\url("corbeille", "afficher") ?>">Corbeille</a>
     <a class="btn btn-warning pop" href="<?php echo router\url("admin", "afficher") ?>">Espace Admin</a>
 </div>

@@ -8,7 +8,7 @@ include("inc/header.php");
             <div id="bloc_btn_edit">
                 <a id="change_album" class="btn_edit btn btn-secondary">Changer d'album</a>
                 <a class="btn_edit btn btn-danger"
-                   href="<?php echo router\url("photo", "supprimer", [$photo['idPh'], $current_album["idAlb"]]) ?>">Supprimer</a>
+                   href="<?php echo router\url("photo", "toTheTrash", [$photo['idPh']]) ?>">Corbeille</a>
             </div>
         </div>
         <div id="bloc_change_album" class="hide_change_album">

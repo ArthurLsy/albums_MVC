@@ -10,7 +10,7 @@ function afficher($id=null){
     view("lesPhotos", [
         "titre"=>"Album",
         "current_album"=>$_SESSION['current_album'],
-        "photos"=>\models\photo\getByAlbum($id),
+        "photos"=>\models\photo\getByAlbumVisible($id),
         "albums"=>\models\album\get()
 
     ]);

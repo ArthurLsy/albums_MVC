@@ -12,14 +12,14 @@ function afficher($id=null) {
             "titre"=>"Photos",
             "current_album"=>$_SESSION['current_album'],
             "albums"=>\models\album\get(),
-            "photos"=>\models\photo\get()
+            "photos"=>\models\photo\getPhotoVisible()
         ]);
     } else {
         view("unePhoto", [
             "titre"=>"Une photo",
             "current_album"=>$_SESSION['current_album'],
             "albums"=>\models\album\get(),
-            "photo"=>\models\photo\get($id)
+            "photo"=>\models\photo\getPhotoVisible($id)
         ]);
     }
 }
@@ -53,9 +53,23 @@ function ajouterPhoto() {
     }
 }
 
-function supprimer($idPh, $idAlb) {
+function supprimer($idPh, $idAlb = null) {
     \models\photo\del($idPh);
-    redirect("album","afficher",[$idAlb]);
+    if ($idAlb == null) {
+        redirect("corbeille","afficher");
+    } else {
+        redirect("album","afficher",[$idAlb]);
+    }
+}
+
+function toTheTrash($idPh) {
+    \models\photo\trash($idPh);
+    redirect("corbeille","afficher");
+}
+
+function restaurer($idPh) {
+    \models\photo\restore($idPh);
+    redirect("Corbeille","afficher");
 }
 
 ?>

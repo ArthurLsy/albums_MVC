@@ -4,8 +4,11 @@
         return \database\get("photos", $id);
     }
 
-    function getByAlbum($id) {
-        return \database\select('SELECT * FROM photos INNER JOIN comporter ON comporter.idPh = photos.idPh WHERE idAlb = '.$id.';');
+    function getByAlbumVisible($id) {
+        return \database\select("SELECT photos.idPh, photos.nomPh
+            FROM photos
+            INNER JOIN comporter ON photos.idPh = comporter.idPh
+            WHERE comporter.idAlb = '.$id.' AND photos.visible = 1;");
     }
 
     function del($id) {
@@ -49,4 +52,39 @@
             WHERE idAlb = '.$idAlb.';');
     }
 
+    function getPhotoVisible($id = null){
+        if ($id == null) {
+            $photos = [];
+            $pics = \database\select(
+                'SELECT idPh
+                FROM photos
+                WHERE visible = 1;');
+            foreach ($pics as $pic){
+                array_push($photos, get($pic['idPh']));
+            }
+            return $photos;
+        } else {
+            return get($id);
+        }
+    }
+
+    function getPhotoInvisible(){
+        $photos = [];
+        $pics = \database\select(
+            'SELECT idPh
+            FROM photos
+            WHERE visible = 0;');
+        foreach ($pics as $pic){
+            array_push($photos, get($pic['idPh']));
+        }
+        return $photos;
+    }
+
+    function trash($idPh){
+        \database\set("photos", ["visible"=>0], $idPh);
+    }
+
+    function restore($idPh){
+        \database\set("photos", ["visible"=>1], $idPh);
+    }
 ?>
